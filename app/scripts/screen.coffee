@@ -20,9 +20,9 @@ class App.Screen
             y = 0
             while y < grid.height
                 switch grid.get x, y
-                    when state.EMPTY then color = '#000'
-                    when state.SNAKE then color = '#666'
-                    when state.FOOD  then color = '#999'
+                    when state.EMPTY then color = '#262626'
+                    when state.SNAKE then color = '#EE6C48'
+                    when state.FOOD  then color = '#6FA724'
                 @ctx.fillStyle = color
                 @ctx.fillRect x * tw, y * th, tw, th
                 y++
