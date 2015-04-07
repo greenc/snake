@@ -1,5 +1,3 @@
-window.App = {}
-
 class App.Game
 
     constructor: (@cols = 15, @rows = 15, @scale = 16) ->
