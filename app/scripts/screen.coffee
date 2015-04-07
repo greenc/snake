@@ -9,7 +9,7 @@ class App.Screen
         document.body.appendChild @canvas
 
 
-    draw: (grid, sprites, score, state) ->
+    draw: (grid, score, state) ->
         tw = @canvas.width / grid.width
         th = @canvas.height / grid.height
 

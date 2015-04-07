@@ -17,10 +17,9 @@ class App.Game
         # Initialize frame counter and score
         @frames = @score  = 0
 
-        # Create canvas, keyboard and sprite contexts
+        # Create canvas and keyboard
         @screen  = new App.Screen @cols, @rows, @scale
         @input   = new App.Keyboard
-        @sprites = {}
 
         # Create the snake
         start = @setStart()
@@ -39,7 +38,7 @@ class App.Game
     run: ->
         state = {@EMPTY, @SNAKE, @FOOD}
         @update()
-        @screen.draw @grid, @sprites, @score, state
+        @screen.draw @grid, @score, state
         window.requestAnimationFrame @run.bind @
 
 
@@ -50,8 +49,6 @@ class App.Game
 
         # Update snake direction based on player input
         @snake.update @input, dirs
-
-        # @grid.set seg.x, seg.y, @SNAKE for seg, i in @snake._queue
 
         # Update grid every 15 frames
         if @frames % 15 is 0
