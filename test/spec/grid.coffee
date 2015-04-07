@@ -1,36 +1,37 @@
-# Tests for grid.coffee
-
-grid = new App.Grid 0, 15, 15
+# Tests for Grid class
 
 describe 'Grid', ->
-    it 'should exist', -> expect(grid).to.be.instanceOf App.Grid
 
+    it 'should exist', ->
+        grid = new App.Grid 0, 10, 20
+        expect(grid).to.be.instanceOf App.Grid
+
+    it 'should throw an error if aguments are missing', ->
+        expect(App.Grid).to.throw Error
 
     it 'constructor', ->
+        grid = new App.Grid 0, 10, 20
         it 'should set height and width properties', ->
-            expect(grid).to.have.ownProperty 'width', 15
-            expect(grid).to.have.ownProperty 'height', 15
-
+            expect(grid).to.have.property 'width', 10
+            expect(grid).to.have.property 'height', 20
         it 'should populate the _grid array', ->
-            expect(grid).to.have.ownProperty '_grid'
             expect(grid._grid).to.be.an 'array'
-            expect(grid._grid).to.have.length 15
-            expect(grid._grid[0]).to.have.length 15
-
+            expect(grid._grid).to.have.length 10
+            expect(grid._grid[0]).to.have.length 20
 
     it 'get', ->
+        grid = new App.Grid 0, 10, 20
         it 'should exist', ->
-            expect(grid).to.have.property 'get'
             expect(grid.get).to.be.a 'function'
-
-        it 'should retrieve a grid coordinate', -> expect(grid.get(7, 7)).to.equal 0
-
+        it 'should retrieve a grid coordinate', ->
+            result = grid.get 7, 7
+            expect(result).to.equal 0
 
     it 'set', ->
+        grid = new App.Grid 0, 10, 20
         it 'should exist', ->
-            expect(grid).to.have.property 'set'
             expect(grid.set).to.be.a 'function'
-
         it 'should set a grid coordinate', ->
             grid.set(7, 7, 2)
-            expect(grid.get(7,7)).to.equal 2
+            result = grid.get 7, 7
+            expect(result).to.equal 2

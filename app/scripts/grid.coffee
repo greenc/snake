@@ -1,6 +1,10 @@
 class App.Grid
 
     constructor: (def, cols, rows) ->
+        if !def? or !cols? or !rows?
+            throw new Error 'Missing arguments'
+            return false
+
         @width  = cols
         @height = rows
         @_grid  = []
