@@ -17,8 +17,8 @@ describe 'Screen', ->
     it 'draw', ->
         it 'should exist', ->
             expect(screen.draw).to.be.a 'function'
-        it 'should return undefined or false for a key that is not currently pressed', ->
-            expect(screen.isDown 'left').to.not.be.ok
-        it 'should return true for a key that is currently pressed', ->
-            screen.down[37] = true
-            expect(screen.isDown 'left').to.be.true
+        it 'should call clear method once', ->
+            spy = sinon.spy screen, 'clear'
+            grid = new App.Grid 0, 15, 15
+            screen.draw(grid, 12, {EMPTY:0, SNAKE:1, FOOD:2})
+            expect(spy).to.have.been.calledOnce

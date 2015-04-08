@@ -2,9 +2,9 @@
   "name": "snake",
   "private": true,
   "dependencies": {
-    "chai": "~1.8.0",
-    "mocha": "~1.14.0",
-    "sinon": "~1.14.1",
+    "chai": "~2.2.0",
+    "sinon": "http://sinonjs.org/releases/sinon-1.14.1.js",
+    "mocha": "~1.21.5",
     "sinon-chai": "~2.7.0"
   },
   "devDependencies": {}

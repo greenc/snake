@@ -13,7 +13,7 @@ class App.Screen
         tw = @canvas.width / grid.width
         th = @canvas.height / grid.height
 
-        @clear
+        @clear()
 
         x = 0
         while x < grid.width
