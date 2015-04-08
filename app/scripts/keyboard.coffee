@@ -1,7 +1,7 @@
 class App.Keyboard
 
     constructor: ->
-        @down = {};
+        @down = {}
         @key  =
             left  : 37
             up    : 38
