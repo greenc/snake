@@ -3,6 +3,8 @@ class App.Snake
     constructor: (d, x, y) ->
         @direction = d
         @_queue    = []
+        @last      = {}
+
         @insert(x, y)
 
 
