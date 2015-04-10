@@ -2,6 +2,7 @@
 describe 'Grid', ->
 
     grid = null
+
     beforeEach -> grid = new App.Grid 0, 10, 20
     afterEach -> grid = null
 
