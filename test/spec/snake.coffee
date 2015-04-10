@@ -1,12 +1,14 @@
 # Tests for Snake class
 describe 'Snake', ->
 
-    snake = null
-    spy = null
+    snake = spy = mockInput = dirs = null
+
     beforeEach ->
         spy = sinon.spy App.Snake.prototype, 'insert'
         snake = new App.Snake 1, 7, 17
-    afterEach -> spy.restore()
+    afterEach ->
+        spy.restore()
+        snake = null
 
     it 'should exist', ->
         expect(snake).to.be.instanceOf App.Snake
@@ -51,8 +53,11 @@ describe 'Snake', ->
 
     describe 'update', ->
 
-        mockInput = {}
-        dirs = { LEFT: 0, UP: 1, RIGHT: 2, DOWN: 3 }
+        before ->
+            mockInput = {}
+            dirs = { LEFT: 0, UP: 1, RIGHT: 2, DOWN: 3 }
+        after ->
+            mockInput = dirs = null
 
         it 'should exist', ->
             expect(snake.update).to.be.a 'function'
