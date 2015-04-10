@@ -5,7 +5,7 @@ class App.Snake
         @_queue    = []
         @last      = {}
 
-        @insert(x, y)
+        @insert x, y
 
 
     insert: (x, y) ->
