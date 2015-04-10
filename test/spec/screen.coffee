@@ -4,6 +4,7 @@ describe 'Screen', ->
     screen = spy = grid = state = null
 
     beforeEach -> screen = new App.Screen 15, 15, 16
+    afterEach -> screen = null
 
     it 'should exist', ->
         expect(screen).to.be.instanceOf App.Screen

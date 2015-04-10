@@ -7,6 +7,7 @@
 </head>
 <body>
     <div id="mocha"></div>
+    <script src="phantomjs_polyfills.js"></script>
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
@@ -24,12 +25,14 @@
     <script src="scripts/keyboard.js"></script>
     <script src="scripts/screen.js"></script>
     <script src="scripts/snake.js"></script>
+    <script src="scripts/game.js"></script>
 
     <!-- include spec files here... -->
     <script src="spec/grid.js"></script>
     <script src="spec/keyboard.js"></script>
     <script src="spec/screen.js"></script>
     <script src="spec/snake.js"></script>
+    <script src="spec/game.js"></script>
 
     <script>mocha.run()</script>
 </body>
