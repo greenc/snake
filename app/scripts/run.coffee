@@ -1,1 +1,3 @@
-document.body.onload = -> game = new App.Game
+document.body.onload = ->
+    game = new App.Game
+    game.run()

@@ -30,9 +30,6 @@ class App.Game
         # Set food on grid
         @setFood()
 
-        # Begin!
-        @run()
-
     run: ->
         state = {@EMPTY, @SNAKE, @FOOD}
         @update()
