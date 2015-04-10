@@ -1,23 +1,21 @@
 # Tests for Game class
 describe 'Game', ->
 
-    game = startSpy = foodSpy = null
-
-    beforeEach ->
-        startSpy = sinon.spy App.Game.prototype, 'setStart'
-        foodSpy = sinon.spy App.Game.prototype, 'setFood'
-        game = new App.Game
-    afterEach ->
-        game = null
-        startSpy.restore()
-        foodSpy.restore()
-
-
-    it 'should exist', ->
-        expect(game).to.be.instanceOf App.Game
-
-
     describe 'constructor', ->
+
+        game = startSpy = foodSpy = null
+        before ->
+            startSpy = sinon.spy App.Game.prototype, 'setStart'
+            foodSpy = sinon.spy App.Game.prototype, 'setFood'
+            game = new App.Game
+        after ->
+            startSpy.restore()
+            foodSpy.restore()
+            game = null
+
+        it 'should exist', ->
+            expect(game).to.be.instanceOf App.Game
+
         it 'should set cell state constants', ->
             expect(game).to.have.ownProperty 'EMPTY'
             expect(game).to.have.ownProperty 'SNAKE'
@@ -68,5 +66,38 @@ describe 'Game', ->
 
 
     describe 'run', ->
+
+        game = updateSpy = screenDrawSpy = null
+        before ->
+            updateSpy = sinon.spy App.Game.prototype, 'update'
+            screenDrawSpy = sinon.spy App.Screen.prototype, 'draw'
+            game = new App.Game
+            game.run()
+        after ->
+            updateSpy.restore()
+            screenDrawSpy.restore()
+            game = null
+
         it 'should exist', ->
             expect(game.run).to.be.a 'function'
+
+        it 'should call update method once', ->
+            expect(updateSpy).to.have.been.calledOnce
+
+        it 'should call screen.draw method once', ->
+            expect(screenDrawSpy).to.have.been.calledOnce
+
+
+    describe 'update', ->
+
+        game = null
+        before -> game = new App.Game
+        after -> game = null
+
+        it 'should exist', ->
+            expect(game.update).to.be.a 'function'
+
+        it 'should increment frame counter by one', ->
+            frame = game.frames
+            game.update()
+            expect(game.frames).to.equal frame + 1
