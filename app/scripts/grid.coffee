@@ -19,7 +19,7 @@ class App.Grid
             x++
 
 
-    set: (x, y, val) -> @_grid[x][y] = val
-
-
     get: (x, y) -> @_grid[x][y]
+
+
+    set: (x, y, val) -> @_grid[x][y] = val

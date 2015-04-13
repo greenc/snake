@@ -24,7 +24,7 @@ class App.Game
         @snake = new App.Snake @UP, start.x, start.y
 
         # Create the playing grid
-        @grid  = new App.Grid @EMPTY, @cols, @rows
+        @grid = new App.Grid @EMPTY, @cols, @rows
         @grid.set start.x, start.y, @SNAKE
 
         # Set food on grid
