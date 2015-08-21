@@ -10,6 +10,10 @@ describe 'Screen', ->
         expect(screen).to.be.instanceOf App.Screen
 
     describe 'constructor', ->
+        it 'should import app constants', ->
+            expect(screen).to.have.ownProperty 'CONST'
+            expect(screen.CONST).to.be.an 'object'
+
         it 'should set "canvas" property', ->
             expect(screen).to.have.ownProperty 'canvas'
             expect(screen.canvas).to.be.an 'object'

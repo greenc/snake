@@ -38,9 +38,3 @@ describe 'Grid', ->
             grid.set(7, 7, 2)
             result = grid.get 7, 7
             expect(result).to.equal 2
-
-
-describe 'Grid instantiated with missing arguments', ->
-
-    it 'should throw an error', ->
-        expect(-> new App.Grid).to.throw Error

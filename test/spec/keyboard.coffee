@@ -17,6 +17,9 @@ describe 'Keyboard', ->
         it 'should set "down" property', ->
             expect(keyboard).to.have.ownProperty 'down'
 
+        it 'should import app constants', ->
+            expect(keyboard).to.have.ownProperty 'CONST'
+            expect(keyboard.CONST).to.be.an 'object'
 
     describe 'isDown', ->
         it 'should exist', ->

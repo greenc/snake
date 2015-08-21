@@ -16,23 +16,9 @@ describe 'Game', ->
         it 'should exist', ->
             expect(game).to.be.instanceOf App.Game
 
-        it 'should set cell state constants', ->
-            expect(game).to.have.ownProperty 'EMPTY'
-            expect(game).to.have.ownProperty 'SNAKE'
-            expect(game).to.have.ownProperty 'FOOD'
-            expect(game.EMPTY).to.be.a 'number'
-            expect(game.SNAKE).to.be.a 'number'
-            expect(game.FOOD).to.be.a 'number'
-
-        it 'should set snake direction constants', ->
-            expect(game).to.have.ownProperty 'LEFT'
-            expect(game).to.have.ownProperty 'UP'
-            expect(game).to.have.ownProperty 'RIGHT'
-            expect(game).to.have.ownProperty 'DOWN'
-            expect(game.LEFT).to.be.a 'number'
-            expect(game.UP).to.be.a 'number'
-            expect(game.RIGHT).to.be.a 'number'
-            expect(game.DOWN).to.be.a 'number'
+        it 'should import app constants', ->
+            expect(game).to.have.ownProperty 'CONST'
+            expect(game.CONST).to.be.an 'object'
 
         it 'should initialize frame counter', ->
             expect(game).to.have.ownProperty 'frames'

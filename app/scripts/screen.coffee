@@ -1,17 +1,22 @@
 class App.Screen
 
-    constructor: (width, height, scale) ->
+    constructor: (width, height) ->
+        @CONST = App.constants
+        @dpr = window.devicePixelRatio
         @canvas = document.createElement 'canvas'
-        @canvas.width = width * scale
-        @canvas.height = height * scale
         @ctx = @canvas.getContext '2d'
-        @ctx.font = '16px Impact, Helvetica, Arial, sans-serif'
+
+        @canvas.width = width * @dpr
+        @canvas.height = height * @dpr
+        @canvas.style.width = width + 'px'
+        @canvas.style.height = height + 'px'
+        @ctx.scale @dpr, @dpr
+
         document.body.appendChild @canvas
 
-
-    draw: (grid, score, state) ->
-        tw = @canvas.width / grid.width
-        th = @canvas.height / grid.height
+    draw: (grid, score) ->
+        tw = @canvas.width / grid.width / @dpr
+        th = @canvas.height / grid.height / @dpr
 
         @clear()
 
@@ -20,16 +25,17 @@ class App.Screen
             y = 0
             while y < grid.height
                 switch grid.get x, y
-                    when state.EMPTY then color = '#262626'
-                    when state.SNAKE then color = '#EE6C48'
-                    when state.FOOD  then color = '#6FA724'
+                    when @CONST.EMPTY then color = @CONST.EMPTY_CL
+                    when @CONST.SNAKE then color = @CONST.SNAKE_CL
+                    when @CONST.FOOD  then color = @CONST.FOOD_CL
                 @ctx.fillStyle = color
                 @ctx.fillRect x * tw, y * th, tw, th
                 y++
             x++
 
-        @ctx.fillStyle = '#fff'
-        @ctx.fillText score, 10, 20
+        @ctx.font = @CONST.FONT
+        @ctx.fillStyle = @CONST.SCORE_CL
+        @ctx.fillText score, 7, 20
 
 
     clear: -> @ctx.clearRect 0, 0, @canvas.width, @canvas.height
