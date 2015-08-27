@@ -14,11 +14,12 @@ class App.Screen
 
         document.body.appendChild @canvas
 
+
     draw: (grid, score) ->
+        @clear()
+
         tw = @canvas.width / grid.width / @dpr
         th = @canvas.height / grid.height / @dpr
-
-        @clear()
 
         x = 0
         while x < grid.width
